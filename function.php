@@ -24,6 +24,27 @@ function tambah($data) {
     return mysqli_affected_rows($connect);
 }
 
+function tambahCustomer($data) {
+    global $connect;
+
+    $id = htmlspecialchars($data["id"]);
+    $nama_depan = htmlspecialchars($data["nama_depan"]);
+    $nama_tengah = htmlspecialchars($data["nama_tengah"]);
+    $nama_belakang = htmlspecialchars($data["nama_belakang"]);
+    $jln = htmlspecialchars($data["jln"]);
+    $rt = htmlspecialchars($data["rt"]);
+    $rw = htmlspecialchars($data["rw"]);
+    $desa = htmlspecialchars($data["desa"]);
+    $kecamatan = htmlspecialchars($data["kecamatan"]);
+    $kabupaten = htmlspecialchars($data["kabupaten"]);
+
+    $tambah = "INSERT INTO customer VALUES ('$id','$nama_depan','$nama_tengah','$nama_belakang','$jln','$rt','$rw','$desa','$kecamatan','$kabupaten')";
+
+    mysqli_query($connect, $tambah);
+
+    return mysqli_affected_rows($connect);
+}
+
 function hapus($data) {
     global $connect;
 
