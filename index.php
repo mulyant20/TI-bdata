@@ -1,5 +1,5 @@
 <?php
-    require 'func.php';
+    require 'function.php';
 
     $mhs = query("SELECT * FROM sewa");
 ?>
@@ -40,6 +40,6 @@
         </tr>
         <?php endforeach; ?>
     </table>
-    <a href="tambah.php">tambah</a>
+    <a href="tambahCustomer.php">tambah customer</a>
 </body>
 </html>
