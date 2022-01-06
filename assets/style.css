@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600&display=swap');
+
+:root {
+    --primary-color: #4621DA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.title-primary {
+    font-size: 17.4px;
+    margin-bottom: 8px;
+    color: #141B44;
+}
+
+.title-secondary {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1rem;
+}
+
+/* ----------------------------------------------------------------------------------------------------------- Navbar */
+#navbar {
+    position: fixed;
+    width: 220px;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.2rem;
+    z-index: 2;
+}
+
+.profile-wrapper {
+    padding-left: 20px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.profile-copy {
+    margin-left: 1rem;
+}
+
+.profile-title {
+    font-size: 14px;
+    margin-bottom: 2px;
+    color: #171d42;
+}
+
+.profile-body {
+    font-size: 12px;
+    color: #8B8F98;
+}
+
+.profile-img {
+    background: #f5f5f5;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.profile-img::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 32px;
+    position: absolute;
+    right: -4px;
+    bottom: 0;
+    border: 3px solid #fff;
+}
+
+#navbar ul li {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding-left: 20px;
+    position: relative;
+}
+
+#navbar ul li a{
+    text-decoration: none;
+    color: #8B8F98;
+}
+
+#navbar ul li.menu-active a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.menu-active::after{
+    content: '';
+    position: absolute;
+    height: 32px;
+    width: 4px;
+    background: var(--primary-color);
+    right: 0;
+    top: 50%;
+    border-radius: 4.3px 0 0 4.3px;
+    transform: translateY(-50%);
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------- SECTION */
+
+#section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-section {
+    margin-left: 220px;
+}
+
+.colomn-left {
+    width: 800px;
+    padding: 1.2rem 2rem;
+    position: absolute;
+    left: 45.5%;
+    transform: translateX(-50%);
+}
+
+.colomn-right {
+    position: fixed;
+    right: 0;
+    background: #EAEAEA;
+    height: 100vh;
+    width: 340px;
+    padding: 1.2rem 2rem;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- FORM */
+
+#form-tambah {
+    width: 100%;
+}
+
+#form-tambah div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+input,
+input {
+    height: 32px;
+    border-radius: 4px;
+    border: 1.6px solid #B3BDD9;
+    padding-left: 10px;
+    color: #333333;
+}
+
+::placeholder {
+    color: #B0B8CC;
+    opacity: 1;
+}
+ 
+label {
+    font-size: 15px;
+    margin-bottom: 4px;
+    color: #8890A6;
+}
+ 
+input:active,
+input:active,
+input:focus,
+input:focus {
+    outline: 1.6px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+#form-tambah div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#form-tambah div:nth-child(2) div:nth-child(1) input{
+    width: 200px;
+}
+#form-tambah div:nth-child(2) div:nth-child(2) input{
+    width: 60px;
+}
+
+#form-tambah div:nth-child(2) div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------------------------------------------------------------------------------------------------------ form edit */
+.form-edit {
+    /* border: 1px solid red; */
+    width: 300px;
+}
+
+.form-edit div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    align-items: center;
+}
+
+/* ------------------------------------------------------------------------------------------------------ card top */
+
+.row-top {
+    display: flex;
+    height: 120px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-top div {
+    border-radius: 8px;
+    width: 224px;
+    background: #fff;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 14px;
+    color: #6d6d6d;
+}
+
+.card-body {
+    font-size: 26px;
+    color: #171d42;
+}
+
+.row-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.row-data table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.row-data .table-customer {
+    width: 100%;
+}
+.row-data .table-customer tr td:nth-child(2),
+.row-data .table-customer tr td:nth-child(3) {
+    text-align: left;
+}
+
+
+.row-data table tr {
+    height: 32px;
+    text-align: center;
+}
+
+.row-data table tr td{
+    font-size: 14px;
+}
+.row-data table tr td:nth-child(6){
+    text-align: left;
+}
+
+.row-data table tr td:last-child a{
+    text-decoration: none;
+    color: #8B8F98;
+}
+
+.row-data table tr th {
+    height: 40px;
+    font-size: 15px;
+    font-weight: 400;
+    background: #fff;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.row-data table tr th:first-child {
+    border-radius: 4px 0 0 0;
+}
+.row-data table tr th:last-child {
+    border-radius: 0 4px 0 0;
+}
+
+.row-data table tr td {
+    background: #EDEDED;
+}
+
+.row-data table tr:nth-of-type(even) td {
+    background: #fff;
+}
+
+/* ---------------------------------------------------------------------------------------------------- Button */
+
+.btn {
+    display: block;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.btn-secondary {
+    background: var(--primary-color);
+    text-align: center;
+    line-height: 40px;
+    height: 40;
+    background: #DFDFDF;
+}
+
+.btn-detail {
+    width: 120px;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    color: #8B8F98;
+}
+
+.btn-ganti {
+    margin-top: 2rem;
+}
+
+/*  ------------------------------------------------------------------------------------------------ Data produk */
+
+.section-produk {
+    width: 860px;
+    padding: 1.2rem 2rem;
+}
+.produk_wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/*  ------------------------------------------------------------------------------------------------ Produk card */
+.produk-card {
+    background: #fff;
+    width: 240px;
+    height: 260px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.produk-img {
+    width: 100%;
+    height: 140px;
+    border-radius: 4px 4px 0 0;
+    background: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.produk-img img {
+    max-width: 100%;
+}
+
+.produk-copy {
+    padding: 1rem;
+    position: relative;
+}
+
+.produk-id,
+.produk-merek,
+.produk-tipe {
+    font-size: 12px;
+    color: #6d6d6d;
+}
+
+.produk-detail {
+    display: flex;
+}
+
+.produk-detail p {
+    margin-right: 4px;
+}
+
+.produk-nama {
+    font-weight: 600;
+    color: #171d42;
+}
+
+.produk-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.produk-harga {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.produk-action {
+    position: absolute;
+    top: 154px;
+    right: 8px;
+    z-index: 2;
+    width: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.produk-action a {
+    text-decoration: none;
+}
+
+.produk-action a img {
+    width: 15px;
+}
