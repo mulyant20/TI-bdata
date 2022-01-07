@@ -127,6 +127,7 @@ body {
     margin-left: 220px;
 }
 
+
 .colomn-left {
     width: 800px;
     padding: 1.2rem 2rem;
@@ -144,6 +145,13 @@ body {
     padding: 1.2rem 2rem;
 }
 
+.colomn-detail {
+    width: 900px;
+    padding: 1.2rem 2rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
 /* ---------------------------------------------------------------------------------------------------------- FORM */
 
 #form-tambah {
@@ -252,6 +260,8 @@ input:focus {
     align-items: center;
 }
 
+/* -------------------------------------------------------------------------------------------------------- Tabel */
+
 .row-data table {
     width: 100%;
     border-spacing: 0;
@@ -306,6 +316,11 @@ input:focus {
 .row-data table tr:nth-of-type(even) td {
     background: #fff;
 }
+
+.table-detail {
+    width: 900px;
+}
+
 
 /* ---------------------------------------------------------------------------------------------------- Button */
 
@@ -433,4 +448,12 @@ input:focus {
 
 .produk-action a img {
     width: 15px;
+}
+
+.table-detail tr td:nth-of-type(6) {
+    padding-left: 32px;
+}
+
+.tggl {
+    color: #8B8F98;
 }
