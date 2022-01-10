@@ -179,4 +179,14 @@ function tambahTransaksi($data) {
 
 function updateTransaksi($data) {}
 
+function hapusTransaksi($data) {
+    global $connect;
+
+    $delete = "DELETE FROM sewa WHERE id_sewa = '$data'";
+
+    mysqli_query($connect, $delete);
+
+    return mysqli_affected_rows($connect);
+}
+
 ?>
