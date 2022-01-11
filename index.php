@@ -13,7 +13,7 @@
 
     $mhs = query("SELECT * FROM sewa");
 
-    $keuntungan = query("SELECT SUM(subtotal) FROM sewa WHERE tggl_keluar >= '2022-01-01'");
+    $keuntungan = query("SELECT SUM(total) FROM pembayaran");
     $jml_transaksi = query("SELECT COUNT(id_sewa) FROM sewa;");
     $jml_customer = query("SELECT COUNT(id_customer) FROM customer");
 
@@ -59,7 +59,7 @@
             <div class="row-top">
                 <div>
                     <p class="card-title">Keuntungan</p>
-                    <p class="card-body"><?= $keuntungan[0]["SUM(subtotal)"]; ?></p>
+                    <p class="card-body"><?= $keuntungan[0]["SUM(total)"]; ?></p>
                 </div>
                 <div>
                     <p class="card-title">Jumlah sewa</p>
@@ -77,22 +77,18 @@
                 </div>
                 <table>
                     <tr>
-                        <th>ID</th>
-                        <th>ID alat</th>
                         <th>ID customer</th>
+                        <th>ID alat</th>
+                        <th>qty</th>
                         <th>tanggal keluar</th>
-                        <th>kuantitas</th>
-                        <th>subtotal</th>
                         <th>action</th>
                     </tr>
                     <?php foreach($mhs as $row) : ?>
                     <tr class="table-row">
-                        <td><?= $row["id_sewa"] ?></td>
-                        <td><?= $row["id_alat"] ?></td>
                         <td><?= $row["id_customer"] ?></td>
+                        <td><?= $row["id_alat"] ?></td>
+                        <td><?= $row["qty"] ?></td>
                         <td><?= $row["tggl_keluar"] ?></td>
-                        <td><?= $row["kuantitas"] ?></td>
-                        <td>Rp. <?= $row["subtotal"] ?></td>
                         <td>
                             <a href="./application/editTransaksi.php?id=<?= $row["id_sewa"] ?>" >Edit</a>
                             <a href="./application/hapusTransaksi.php?id=<?= $row["id_sewa"] ?>" >hapus</a>
