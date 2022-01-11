@@ -11,7 +11,9 @@
         }
     }
 
-    $mhs = query("SELECT * FROM sewa");
+    $sewa = query("SELECT * FROM sewa");
+    $kembali = query("SELECT * FROM pengembalian");
+    $bayar = query("SELECT * FROM pembayaran");
 
     $keuntungan = query("SELECT SUM(total) FROM pembayaran");
     $jml_transaksi = query("SELECT COUNT(id_sewa) FROM sewa;");
@@ -83,7 +85,7 @@
                         <th>tanggal keluar</th>
                         <th>action</th>
                     </tr>
-                    <?php foreach($mhs as $row) : ?>
+                    <?php foreach($sewa as $row) : ?>
                     <tr class="table-row">
                         <td><?= $row["id_customer"] ?></td>
                         <td><?= $row["id_alat"] ?></td>
@@ -98,6 +100,55 @@
                     <?php endforeach; ?>
 
                     
+                </table>
+            </div>
+            <div class="row-data">
+                <div class="row-title">
+                    <p class="title-primary">Data pengembalian</p>
+                </div>
+                <table>
+                    <tr>
+                        <th>ID sewa</th>
+                        <th>ID Alat</th>
+                        <th>Qty</th>
+                        <th>tanggal kembali</th>
+                        <th>action</th>
+                    </tr>
+                    <?php foreach($kembali as $row) : ?>
+                    <tr class="table-row">
+                        <td><?= $row["id_sewa"] ?></td>
+                        <td><?= $row["id_alat"] ?></td>
+                        <td><?= $row["qty"] ?></td>
+                        <td><?= $row["tggl_kembali"] ?></td>
+                        <td>
+                            <a href="./application/editTransaksi.php?id=<?= $row["id_sewa"] ?>" >Edit</a>
+                            <a href="./application/hapusTransaksi.php?id=<?= $row["id_sewa"] ?>" >hapus</a>   
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+            <div class="row-data">
+                <div class="row-title">
+                    <p class="title-primary">Data pembayaran</p>
+                </div>
+                <table>
+                    <tr>
+                        <th>pengembalian</th>
+                        <th>sewa</th>
+                        <th>lama(hari)</th>
+                        <th>subtotal</th>
+                        <th>total</th>
+                    </tr>
+                    <?php foreach($bayar as $row) : ?>
+                    <tr class="table-row">
+                        <td><?= $row["id_kembali"] ?></td>
+                        <td><?= $row["id_sewa"] ?></td>
+                        <td><?= $row["lama"] ?></td>
+                        <td><?= $row["subtotal"] ?></td>
+                        <td><?= $row["total"] ?></td>
+                    </tr>
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div>
