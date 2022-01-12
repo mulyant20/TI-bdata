@@ -14,6 +14,8 @@
     $sewa = query("SELECT * FROM sewa");
     $kembali = query("SELECT * FROM pengembalian");
     $bayar = query("SELECT * FROM pembayaran");
+    $customer = query("SELECT * FROM customer");
+    $alatproyek = query("SELECT * FROM alatproyek");
 
     $keuntungan = query("SELECT SUM(total) FROM pembayaran");
     $jml_transaksi = query("SELECT COUNT(id_sewa) FROM sewa;");
@@ -61,7 +63,7 @@
             <div class="row-top">
                 <div>
                     <p class="card-title">Keuntungan</p>
-                    <p class="card-body"><?= $keuntungan[0]["SUM(total)"]; ?></p>
+                    <p class="card-body">Rp. <?= $keuntungan[0]["SUM(total)"]; ?></p>
                 </div>
                 <div>
                     <p class="card-title">Jumlah sewa</p>
@@ -98,8 +100,6 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
-
-                    
                 </table>
             </div>
             <div class="row-data">
@@ -163,7 +163,12 @@
                 <div>
                     <div>
                         <label for="id_alat">ID alat</label>
-                        <input type="text" name="id_alat" id="id_alat">
+                        <input type="text" list="auto-complete" id="id_alat" name="id_alat">
+                        <datalist id="auto-complete">
+                            <?php foreach($alatproyek as $i) : ?>
+                            <option value="<?= $i["id_alat"] ?>"><?= $i["nama"] ?> <?= $i["merek"] ?> <?= $i["tipe"] ?></option>
+                            <?php endforeach ?>
+                        </datalist>
                     </div>
                     <div>
                         <label for="kuantitas">QTY</label>
@@ -172,7 +177,13 @@
                 </div>
                 <div>
                     <label for="id_customer">ID customer</label>
-                    <input type="text" name="id_customer" id="id_customer">
+                    <input type="text" list="auto-complete" id="id_customer" name="id_customer">
+                    <datalist id="auto-complete">
+                        <?php foreach($customer as $i) : ?>
+                        <option value="<?= $i["id_customer"] ?>"><?= $i["nama_depan"] ?> <?= $i["nama_tengah"] ?> <?= $i["nama_belakang"] ?></option>
+                        <?php endforeach ?>
+                    </datalist>
+
                 </div>
                 <div>
                     <label for="tggl_keluar">Tanggal</label>
